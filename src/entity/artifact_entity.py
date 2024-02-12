@@ -5,3 +5,29 @@ from dataclasses import dataclass
 class DataIngestionArtifacts:
     download_dir_path: str
     extract_dir_path: str
+
+@dataclass
+class DataPreprocessingArtifacts:
+    train_metadata_path: str
+    test_metadata_path: str
+    class_mappings: dict
+    transformation_object: object
+    num_classes: int
+
+@dataclass
+class ModelTrainerArtifacts:
+    trained_model_path: str
+    model_accuracy: float
+    model_loss: float
+
+@dataclass
+class ModelEvaluationArtifacts:
+    trained_model_accuracy: float
+    s3_model_accuracy: float
+    is_model_accepted: bool
+    trained_model_path: str
+    s3_model_path: str
+
+@dataclass
+class ModelPusherArtifacts:
+    response: str 
